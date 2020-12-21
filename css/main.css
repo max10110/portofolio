@@ -19,6 +19,10 @@
     src: url('../font/BebasNeue-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 @font-face{
+    font-family:"Gilroy-Regular";
+    src: url('../font/Gilroy-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+@font-face{
     font-family:"Montserrat-SemiBold";
     src: url('../font/Montserrat-SemiBold.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
@@ -116,12 +120,107 @@ a{
     position: relative;
 }
 .main-section-ic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 0;
-    left: 0;
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0px 20px 40px rgba(255, 107, 0, 0.13), 0px 10px 10px rgba(255, 107, 0, 0.05);
+}
+.main-section-gear{
+    width: 85px;
+    height: 85px;
+    top: 102px;
+    left: 137px;
+}
+.main-section-laptop{
+    width: 51px;
+    height: 51px;
+    right: 92px;
+    top: 122px;
+}
+.main-section-phone{
+    width: 73px;
+    height: 73px;
+    bottom: 143px;
+    left: 25px;
+}
+.main-section-monitor{
+    width: 59px;
+    height: 59px;
+    right: 30px;
+    bottom: 83px;
+}
+.sale-text{
+    font-family: "Gilroy-Regular";
+    font-size: 20px;
+    line-height: 26px;
+    color: #13171D;
+    margin-bottom: 20px;
+}
+.sale-cont{
+    padding-top: 69px;
+    padding-bottom: 30px;
+    width: 265px;
+    background: #FFFFFF;
+    box-shadow: 0px 71px 80px rgba(255, 107, 0, 0.11), 0px 21.4044px 24.1177px rgba(255, 107, 0, 0.0716748), 0px 8.8903px 10.0172px rgba(255, 107, 0, 0.055), 0px 3.21545px 3.62304px rgba(255, 107, 0, 0.0383252);
+    border-radius: 30px;
+}
+.sale-content{
+    width: 80%;
+    margin: 0 auto;
+}
+.sale-cont img{
+    position: absolute;
+    left: 25px;
+    top: -33px;
+    filter: drop-shadow(0px 100px 80px rgba(255, 107, 0, 0.17));
+}
+hr{
+    border: 0.5px solid #13171D;  
+    opacity: 0.1;
+}
+.sale-wrp{
+    position: absolute;
+    bottom: 25%;
+    right: -60px;
+}
+.timer-wrp{
+    margin-top: 22px;
+}
+.end-timer{
+    color: #13171D;
+    opacity: 0.5;
+    font-size: 20px;
+    line-height: 24px;
+    font-family:"Gilroy-Semibold";
+}
+#demo{
+    font-family:"Gilroy-Semibold";
+    color: #13171D;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.timer-wrp ul{
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.timer-wrp ul li{
+    font-size: 11px;
+    font-family:"Gilroy-Semibold";
+    line-height: 13px;
+    color: #13171D;
+    opacity: 0.5;
+    margin-top: 5px;
+}
+.timer-wrp ul li:nth-child(2){
+    margin-left: 42px;
+    margin-right: 25px;
 }
 /* End header section */
 

@@ -37,10 +37,28 @@
                 <div class="consult-btn-wrp"><a href="#">Бесплатная консультация</a></div>
             </div>
             <div class="main-section-cont">
-                <div class="main-section-gear main-section-ic"><img src="img/gear.png" alt="dec" class="main-section-des"></div>
-                <div class="main-section-laptop main-section-ic"><img src="img/laptop-header.png" alt="dec" class="main-section-des"></div>
-                <div class="main-section-phone main-section-ic"><img src="img/phone-header.png" alt="dec" class="main-section-des"></div>
-                <div class="main-section-monitor main-section-ic"><img src="img/monitor.png" alt="dec" class="main-section-des"></div>
+                <div class="main-section-gear main-section-ic"><img src="img/gear.png" alt="dec"></div>
+                <div class="main-section-laptop main-section-ic"><img src="img/laptop-header.png" alt="dec"></div>
+                <div class="main-section-phone main-section-ic"><img src="img/phone-header.png" alt="dec"></div>
+                <div class="main-section-monitor main-section-ic"><img src="img/monitor.png" alt="dec"></div>
+                <div class="sale-wrp">
+                    <div class="sale-cont">
+                        <img src="img/sale-num-head.png" alt="sale">
+                        <div class="sale-content">
+                            <p class="sale-text">скидка на ремонт телефонов, ноутбуков и планшетов до -50%</p>
+                            <hr>
+                            <div class="timer-wrp">
+                                <p class="end-timer">Конец акции</p>
+                                <pre id="demo"></pre>
+                                <ul>  
+                                    <li>DAYS</li>
+                                    <li>HOURS</li>
+                                    <li>MINUTES</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -343,6 +361,32 @@
             prevArrow: '<img src="img/arrow-left-2.png" alt="arrow">',
             nextArrow: '<img src="img/arrow-right-2.png" alt="arrow">',
          });
+         var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        // Display the result in the element with id="demo"
+        document.getElementById("demo").innerHTML = days + "  :  " + hours + "  :  " 
+        + minutes;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+        }, 1000);
     </script>
 </body>
 </html>
