@@ -4,26 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/adaptive.css">
     <title>Arron</title>
 </head>
 <body>
+    <div class="og"></div>
+    <div class="consult bid-sec">
+        <div class="close-wrp">
+            <img src="img/x.png">
+        </div>
+        <h4>Оставьте заявку на <span>бесплатную</span> консультацию</h4>
+        <form action="#">
+            <input type="text" placeholder="Имя">
+            <input type="tel" placeholder="Телефон">
+            <input type="submit" value="Получить консультацию">
+        </form>
+    </div>
     <header id="navbar">
         <nav class="header-nav">
-            <div>
-                <a href="#"><img src="img/header-logo.png" alt="logo"></a>
+            <div class="header-nav-container">
+                <a href="#" class="header-logo"><img src="img/header-logo.png" alt="logo"></a>
+                <a href="#" class="burger-wrp" onclick="return false;">
+                    <div class="burger">
+                        <span class="burger__line burger__line_first"></span>
+                        <span class="burger__line burger__line_second"></span>
+                        <span class="burger__line burger__line_third"></span>
+                        <span class="burger__line burger__line_fourth"></span>
+                    </div>
+                </a>
                 <ul class="nav-menu">
-                    <li><a href="#services">Наши услуги</a></li>
+                    <li class="nav-menu-first"><a href="#services">Наши услуги</a></li>
                     <li><a href="#about">О компании</a></li>
                     <li><a href="#reviews">Отзывы</a></li>
                     <li><a href="#orders">Выполненные заказы</a></li>
                     <li><a href="#contacts">Контакты</a></li>
+                    <li class="nav-phone-adapt">
+                        <ul class="nav-phone nav-phone-ap">
+                            <li>
+                                <p>069 82 77 38</p>
+                                <p>079 92 77 38</p>
+                            </li>
+                            <li><a href="#" class="link-phone"><img src="img/header-phone.png" alt="phone"></a></li>
+                        </ul>
+                    </li>
                 </ul>   
             </div>
             <ul class="nav-phone">
                 <li>069 82 77 38</li>
                 <li class="sep">/</li>
                 <li>079 92 77 38</li>
-                <li><a href="#"><img src="img/header-phone.png" alt="phone"></a></li>
+                <li><a href="#" class="link-phone"><img src="img/header-phone.png" alt="phone"></a></li>
             </ul>
         </nav>
     </header>
@@ -31,21 +61,18 @@
         <img src="img/header-dsc.png" alt="dec" class="main-section-des">
         <img src="img/header-dsc-2.png" alt="dec" class="main-section-des-2">
         <div class="main-section">
-            <div>
-                <h1>Проблемы с Вашим устройством?</h1>
+            <div class="text-main-section-wrp">
+                <h1>Проблемы с Вашим устройством?<img class="text-main-triangle" src="img/triangles.png"></h1>
                 <h2>Решаем любые проблемы! Большой склад и опытные мастера</h2>
                 <div class="consult-btn-wrp"><a href="#">Бесплатная консультация</a></div>
             </div>
             <div class="main-section-cont">
-                <div class="main-section-gear main-section-ic"><img src="img/gear.png" alt="dec"></div>
-                <div class="main-section-laptop main-section-ic"><img src="img/laptop-header.png" alt="dec"></div>
-                <div class="main-section-phone main-section-ic"><img src="img/phone-header.png" alt="dec"></div>
-                <div class="main-section-monitor main-section-ic"><img src="img/monitor.png" alt="dec"></div>
+
                 <div class="sale-wrp">
                     <div class="sale-cont">
                         <img src="img/sale-num-head.png" alt="sale">
                         <div class="sale-content">
-                            <p class="sale-text">скидка на ремонт телефонов, ноутбуков и планшетов до -50%</p>
+                            <p class="sale-text">скидка на ремонт телефонов, ноутбуков и планшетов до <strong>-50%</strong></p>
                             <hr>
                             <div class="timer-wrp">
                                 <p class="end-timer">Конец акции</p>
@@ -63,6 +90,7 @@
         </div>
     </section>
     <section class="devices">
+        <h2 class="adapt-devices">Мы работаем<br>c устройствами:</h2>
         <div class="devices-cont-wrp">
             <h2>Мы работаем<br>c устройствами:</h2>
             <ul class="devices-list">
@@ -88,7 +116,7 @@
                 </li>
             </ul>
         </div>
-        <div class="devices-cont-wrp">
+        <div class="devices-cont-wrp devices-cont-wrp-pd">
             <ul class="devices-list">
                 <li class="devices-list__item">
                     <a href="#">
@@ -110,7 +138,7 @@
                         <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
                     </a>
                 </li>
-                <li class="devices-list__item">
+                <li class="devices-list__item devices-list__item-adapt">
                     <a href="#">
                         <div class="content-background"></div>
                         <img class="product-img" src="img/pc.png" alt="product">
@@ -132,12 +160,83 @@
                 </li>
             </ul>
         </div>
+        <!--dwdw-->
+        <div class="devices-cont-wrp devices-cont-wrp-adapt">
+            <h2>Мы работаем<br>c устройствами:</h2>
+            <div class="devices-list devices-list-adapt">
+                <div class="devices-list__item">
+                    <a href="#">
+                        <div class="content-background"></div>
+                        <img class="product-img" src="img/apple.png" alt="product">
+                        <img class="iphone-dots" src="img/iphone-dots.png" alt="dots">
+                        <div class="device-logo-wrp"><img src="img/apple-logo.png" alt="apple-logo"></div>
+                        <h5>Apple</h5>
+                        <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
+                    </a>
+                </div>
+                <div class="devices-list__item">
+                    <a href="#">
+                        <div class="content-background"></div>
+                        <img class="product-img" src="img/android.png" alt="product">
+                        <img class="andr-dots" src="img/andr-line.png" alt="dots">
+                        <div class="device-logo-wrp"><img src="img/android-logo.png" alt="apple-logo"></div>
+                        <h5>Android</h5>
+                        <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
+                    </a>
+                </div>
+                <li class="devices-list__item">
+                    <a href="#">
+                        <div class="content-background"></div>
+                        <img class="product-img" src="img/clock.png" alt="product">
+                        <img class="clock-dots" src="img/andr-line.png" alt="dots">
+                        <img class="clock-desc" src="img/clock-desc.png" alt="dots">
+                        <h5>Гаджетами</h5>
+                        <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
+                    </a>
+                </li>
+                <div class="devices-list__item">
+                    <a href="#">
+                        <div class="content-background"></div>
+                        <img class="product-img" src="img/note.png" alt="product">
+                        <img class="note-desc" src="img/note-desc.png" alt="dots">
+                        <img class="note-desc-2" src="img/note-desc-2.png" alt="dots">
+                        <h5>Ноутбуками</h5>
+                        <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
+                    </a>
+                </div>
+                <div class="devices-list__item">
+                    <a href="#">
+                        <div class="content-background"></div>
+                        <img class="product-img" src="img/pc.png" alt="product">
+                        <img class="pc-desc" src="img/pc-desc.png" alt="dots">
+                        <img class="pc-desc-2" src="img/pc-desc-2.png" alt="dots">
+                        <h5>Моноблоками и PC</h5>
+                        <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
+                    </a>
+                </div>
+                <div class="devices-list__item">
+                    <a href="#">
+                        <div class="content-background"></div>
+                        <img class="product-img" src="img/pad.png" alt="product">
+                        <img class="pad-desc" src="img/dots-rine.png" alt="dots">
+                        <img class="pad-desc-2" src="img/pad-desc.png" alt="dots">
+                        <h5>Другими устройствами</h5>
+                        <a href="#"><div class="arrow-devixe-wrp1"><div class="arrow-devixe-wrp2"><img src="img/red-arrow.png" alt="arrow"></div></div></a>
+                    </a>
+                </div>
+                <div>  
+                </div>
+            </div>
+        </div>
+        <!--dwdw-->
     </section>
     <section  id="about" class="about-section">
         <div class="about-section-cont-wrp">
             <div class="about-section-block">
-                <h2>О компании Arron <img src="img/triangles.png" class="about-section-dec"></h2>
-                <h5>Узнайте о нашей компании больше из видео за 1 минуту.</h5>
+                <div>
+                    <h2>О компании Arron <img src="img/triangles.png" class="about-section-dec"></h2>
+                    <h5>Узнайте о нашей компании больше из видео за 1 минуту.</h5>
+                </div>
                 <a href="#" class="video-but">Смотреть <img src="img/button-triangle.png" alt="caret"></a>
             </div>
             <div class="about-section-block-2">
@@ -189,7 +288,7 @@
             </div>
             <div class="slider-reviews slider-main">
                 <div class="slider-reviews-item">
-                    <img src="img/review-1.png" alt="review">
+                    <img class="slide-rewiev-img" src="img/review-1.png" alt="review">
                     <a href="#" class="slider-caret-wrp">
                         <div>
                             <img src="img/review-caret.png" alt="caret">
@@ -197,7 +296,7 @@
                     </a>
                 </div>
                 <div class="slider-reviews-item">
-                    <img src="img/review-2.png" alt="review">
+                    <img class="slide-rewiev-img" src="img/review-2.png" alt="review">
                     <a href="#" class="slider-caret-wrp">
                         <div>
                             <img src="img/review-caret.png" alt="caret">
@@ -205,7 +304,7 @@
                     </a>
                 </div>
                 <div class="slider-reviews-item">
-                    <img src="img/review-3.png" alt="review">
+                    <img class="slide-rewiev-img" src="img/review-3.png" alt="review">
                     <a href="#" class="slider-caret-wrp">
                         <div>
                             <img src="img/review-caret.png" alt="caret">
@@ -213,7 +312,7 @@
                     </a>
                 </div>
                 <div class="slider-reviews-item">
-                    <img src="img/review-4.png" alt="review">
+                    <img class="slide-rewiev-img" src="img/review-4.png" alt="review">
                     <a href="#" class="slider-caret-wrp">
                         <div>
                             <img src="img/review-caret.png" alt="caret">
@@ -221,7 +320,7 @@
                     </a>
                 </div>
                 <div class="slider-reviews-item">
-                    <img src="img/review-2.png" alt="review">
+                    <img class="slide-rewiev-img" src="img/review-2.png" alt="review">
                     <a href="#" class="slider-caret-wrp">
                         <div>
                             <img src="img/review-caret.png" alt="caret">
@@ -259,29 +358,34 @@
     </section>
     <section id="services" class="arron-wrp">
         <div class="arron-wrp-text">
-            <h3>Arron Сервис</h3>
-            <p>- это ремонт компьютерной техники и електроники в Кишиневе</p>
+            <div>
+                <h3>Arron Сервис</h3>
+                <p>- это ремонт компьютерной техники и електроники в Кишиневе</p>
+            </div>
             <div class="consult-btn-wrp"><a href="#">Бесплатная консультация</a></div>
         </div>
-        <ul>
-            <li>ремонт ноутбуков</li>
-            <li>ремонт смартфонов</li>
-            <li>заправка и ремонт картриджей</li>
-            <li>установка СНПЧ</li>
-            <li>ремонт компьютеров</li>
-            <li>ремонт моноблоков</li>
-            <li>ремонт планшетов</li>
-        </ul>
-        <ul>
-            <li>ремонт КПК</li>
-            <li>ремонт мониторов</li>
-            <li>ремонт принтеров</li>
-            <li>ремонт роутеров</li>
-            <li>восстановление жестких дисков</li>
-            <li>компьютерная помощь и IT аутсорсинги др.</li>
-        </ul>
+        <div class="arron-wrp-li">
+            <ul>
+                <li>ремонт ноутбуков</li>
+                <li>ремонт смартфонов</li>
+                <li>заправка и ремонт картриджей</li>
+                <li>установка СНПЧ</li>
+                <li>ремонт компьютеров</li>
+                <li>ремонт моноблоков</li>
+                <li>ремонт планшетов</li>
+            </ul>
+            <ul>
+                <li>ремонт КПК</li>
+                <li>ремонт мониторов</li>
+                <li>ремонт принтеров</li>
+                <li>ремонт роутеров</li>
+                <li>восстановление жестких дисков</li>
+                <li>компьютерная помощь и IT аутсорсинги др.</li>
+            </ul>
+        </div>
         <img src="img/header-dsc.png" alt="dec" class="aaron-dec">
     </section>
+    <div class="consult-btn-wrp consult-btn-wrp-adapt"><a href="#">Бесплатная консультация</a></div>
     <section class="work">
         <div class="cit-wrp">
             <img src="img/cc.png" alt="cc">
@@ -306,7 +410,7 @@
                     </div>
                     <div class="work-slide__item">
                         <img src="img/work-slide.png" alt="">
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,7 +428,7 @@
         <ul>
             <li>
                 <img src="img/phone-footer.png" alt="phone">
-                <p>069 82 77 38 <span>/</span> 079 92 77 38</p>
+                <p>069&nbsp;82&nbsp;77&nbsp;38 <span>/</span> 079&nbsp;92&nbsp;77&nbsp;38</p>
             </li>
             <li>
                 <img src="img/phone-footer-2.png" alt="phone">
@@ -351,6 +455,31 @@
             prevArrow: '<img src="img/arrow-left.png" alt="arrow">',
             nextArrow: '<img src="img/arrow-right.png" alt="arrow">',
             dots: true,
+            responsive: [
+                {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 3,
+                    
+                }
+                },
+                {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+
+                }
+                },
+                {
+                breakpoint: 524,
+                settings: {
+                    slidesToShow: 1.5,
+                    infinite: false
+
+                }
+                },
+
+            ]
          });
          $('.slider-orders').slick({
             infinite: true,
@@ -362,6 +491,24 @@
             prevArrow: '<img src="img/arrow-left.png" alt="arrow">',
             nextArrow: '<img src="img/arrow-right.png" alt="arrow">',
             dots: true,
+            responsive: [
+                {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 2,
+                    
+                }
+                },
+                {
+                breakpoint: 524,
+                settings: {
+                    slidesToShow: 1.5,
+                    infinite: false
+
+                }
+                },
+
+            ]
          });
          $('.work-slide').slick({
             infinite: true,
@@ -370,9 +517,55 @@
             autoplaySpeed: 3000,
             slidesToScroll: 1,
             appendArrows: $('.work-slide-wrp'),
-            prevArrow: '<img src="img/arrow-left-2.png" alt="arrow">',
-            nextArrow: '<img src="img/arrow-right-2.png" alt="arrow">',
+            prevArrow: '<img class="arrow-work" src="img/arrow-left-2.png" alt="arrow">',
+            nextArrow: '<img class="arrow-work" src="img/arrow-right-2.png" alt="arrow">',
+            responsive: [
+                {
+                breakpoint: 820,
+                settings: {
+                    dots: true,   
+                    prevArrow: "", 
+                    nextArrow: "", 
+                }
+                },
+            ]
          });
+         $('.devices-list-adapt').slick({
+            infinite: false,
+            slidesToShow: 1.5,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToScroll: 1,
+            dots: true,
+            prevArrow: false,
+            nextArrow: false,
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 624,
+                    settings: "unslick"
+                }
+            ]
+         });
+
+         (function () {
+            const burger = document.querySelector('.burger');
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('burger_active');
+                $(".nav-menu").toggleClass('opacity');
+                $("section").toggleClass('blur');
+                $(".adress").toggleClass('blur');
+                $("iframe").toggleClass('blur');
+                $(".header-logo").toggleClass('head-disp');
+            });
+        }());
+        (function () {
+            const link = document.querySelector('.link-phone');
+            link.addEventListener('click', () => {
+                $(".og").toggleClass('op-back');
+                $(".consult").toggleClass('opct');
+            });
+        }());
          var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
 
         // Update the count down every 1 second

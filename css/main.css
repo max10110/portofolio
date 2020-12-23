@@ -54,6 +54,9 @@ time, mark, audio, video {
 html {
     scroll-behavior: smooth; 
 }
+body{
+    overflow-x: hidden;
+}
 li{
     list-style-type: none; 
 }
@@ -63,7 +66,7 @@ a{
 /* Start header section */
 .sticky{
     background: #fff;
-    box-shadow: 0px 8px 16px rgba(255, 107, 0, 0.16);
+    box-shadow: 0px 5px 20px #CDDAE1;
     position: fixed;
     top: 0;
     z-index: 2000;
@@ -72,10 +75,7 @@ a{
 
 header{
     margin-top: 20px;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px;
+    padding-top: 5px;
     transition: 0.15s all;
     width: 100%;
 
@@ -94,10 +94,15 @@ header{
     display: flex;
     margin-left: 80px;
 }
+
 .nav-menu a{
     color: #13171D;
     font-size: 16px;
     position: relative;
+    transition: 0.25s all;
+    height: 107px;
+    display: flex;
+    align-items: center;
 }
 .nav-menu a::after{
     display: block;
@@ -105,13 +110,17 @@ header{
 	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
 	width: 0;/*задаём длинну линии до наведения курсора*/
 	height: 2px; /*задаём ширину линии*/
-	background-color: #13171D; /*задаём цвет линии*/
+	background-color: #E2001A; /*задаём цвет линии*/
 	content: "";
-	transition: width 0.3s ease-out; /*задаём время анимации*/
+    transition: width 0.3s ease-out; /*задаём время анимации*/
+    bottom: 0;
 }
 .nav-menu a:hover:after,
 .nav-menu a:focus:after {
 	width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+.nav-menu a:hover{
+    color: #E2001A;
 }
 .nav-menu li{
     margin-left: 24px;
@@ -159,6 +168,9 @@ header{
     margin-top: -65px;
     position: relative;
     z-index: -1;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .main-section-ic{
     display: flex;
@@ -178,7 +190,7 @@ header{
 .main-section-laptop{
     width: 51px;
     height: 51px;
-    right: 92px;
+    right: 12%;
     top: 122px;
 }
 .main-section-phone{
@@ -190,7 +202,7 @@ header{
 .main-section-monitor{
     width: 59px;
     height: 59px;
-    right: 30px;
+    right: 3%;
     bottom: 83px;
 }
 .sale-text{
@@ -225,7 +237,7 @@ hr{
 .sale-wrp{
     position: absolute;
     bottom: 25%;
-    right: -60px;
+    right: 0;
 }
 .timer-wrp{
     margin-top: 22px;
@@ -261,7 +273,7 @@ hr{
 }
 .timer-wrp ul li:nth-child(2){
     margin-left: 42px;
-    margin-right: 25px;
+    margin-right: 40px;
 }
 /* End header section */
 
@@ -272,6 +284,12 @@ h1{
     max-width: 625px;
     line-height: 100px;
     padding-top: 138px;
+    position: relative;
+}
+.text-main-triangle{
+    position: absolute;
+    right: -40px;
+    top: 43%;
 }
 .main-section{
     font-family: "Gilroy-Medium";
@@ -303,7 +321,7 @@ h1{
     cursor: pointer;
 }
 .consult-btn-wrp:hover{
-    background-color: #FF0000;
+    background-color: #FC142F;
 }
 .consult-btn-wrp a{
     color: #fff;
@@ -325,7 +343,7 @@ h1{
 .devices{
     max-width: 1298px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: -97px;
 }
 .devices-list{
     font-family: "Gilroy-Semibold";
@@ -431,22 +449,22 @@ h1{
     top: 0;
     right: 38px;
 }
-.devices-cont-wrp:last-child{
+.devices-cont-wrp-pd{
     margin-top: 50px;
 }
-.devices-cont-wrp:last-child .arrow-devixe-wrp1{
+.devices-cont-wrp-pd .arrow-devixe-wrp1{
     bottom: -68px;
 }
-.devices-cont-wrp:last-child .devices-list__item:first-child h5{
+.devices-cont-wrp-pd .devices-list__item:first-child h5{
     margin-top: -11px;
 }
-.devices-cont-wrp:last-child .devices-list__item:nth-child(2) h5{
+.devices-cont-wrp-pd .devices-list__item:nth-child(2) h5{
     margin-top: 19px;
 }
-.devices-cont-wrp:last-child .devices-list__item:nth-child(3) h5{
+.devices-cont-wrp-pd .devices-list__item:nth-child(3) h5{
     margin-top: 46px;
 }
-.devices-cont-wrp:last-child .devices-list__item:nth-child(4) h5{
+.devices-cont-wrp-pd .devices-list__item:nth-child(4) h5{
     margin-top: -2px;
 }
 .clock-dots{
@@ -509,11 +527,13 @@ h1{
     position: absolute;
     bottom: 37px;
     right: 0;
+    z-index: -1;
 }
 .main-section-des{
     position: absolute;
     left: 0;
     bottom: 0;
+    z-index: -1;
 }
 
 /* About section */
@@ -570,7 +590,7 @@ h1{
     transition: 0.25s all;
 }
 .about-section-cont-wrp .video-but:hover{
-    background-color: #FF0000;
+    background-color: #FC142F;
 }
 .about-section-cont-wrp .video-but img{
     margin-left: 16px;
@@ -636,8 +656,8 @@ h1{
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 151px;
+    top: 125px;
     margin-top: -31px;
     margin-left: -31px;
     border-radius: 50%;
@@ -665,7 +685,7 @@ h1{
     display: flex;
 }
 /*slick*/
-.slider-main .slick-dots li button {
+.slick-dots li button {
     outline: none;
     border: none;
     background: #9A9EA3;
@@ -676,21 +696,21 @@ h1{
     padding: 3px;
     cursor: pointer;
 }
-.slider-main .slick-dots .slick-active button{  
+.slick-dots .slick-active button{  
     background: #fff;
     border: 3px solid #E2001A;
     padding: 4px;
 }
-.slider-main .slick-dots li{
+.slick-dots li{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 30px;
 }
-.slider-main .slick-dots li:first-child{
+.slick-dots li:first-child{
     margin-left: 0;
 }
-.slider-main .slick-dots{
+.slick-dots{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -704,6 +724,9 @@ h1{
     box-shadow: 0px 8px 16px rgba(255, 107, 0, 0.16);
     cursor: pointer;
     transition: 0.25s all;
+}
+.slick-arrow:first-child{
+    margin-right: 16px;
 }
 .slick-arrow:hover{
     box-shadow: 0px 8px 16px rgba(255, 107, 0, 0.36);
@@ -809,6 +832,17 @@ h1{
     bottom: -23px;
     right: -50px;
 }
+.arron-wrp-li{
+    display: flex;
+}
+.consult-btn-wrp-adapt{
+    display: none;
+    width: 233px;
+    height: 48px;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
 /*work*/
 .work h5{
     font-size: 24px;
@@ -821,7 +855,6 @@ h1{
 
 }
 .cit-wrp img:last-child {
-	transform: rotate(180deg);
 	position: absolute;
 	right: 0;
 	bottom: -20px;
@@ -931,6 +964,10 @@ h1{
     font-family: "Montserrat-Regular";
     color: #646464;
 }
+.bid-sec input[type=text]:focus, .bid-sec input[type=tel]:focus{
+    border: 1px solid #867E7E;
+    color: #13171D;
+}
 .bid-sec input[type=submit]{
     cursor: pointer;
     border:none;
@@ -945,9 +982,10 @@ h1{
     font-family: "Montserrat-SemiBold";
     background-color: #E2001A;
     border-radius: 15px;
+    transition: 0.25s all;
 }
 .bid-sec input[type=submit]:hover{
-    background-color: #FF0000;
+    background-color: #FC142F;
 }
 .bid-sale{
     position: absolute;
@@ -999,3 +1037,72 @@ input:focus{
 
 }
 
+.devices .adapt-devices{
+    display: none;
+}
+.devices-cont-wrp-adapt{
+    display: none;
+}
+.nav-phone-adapt{
+    display: none;
+}
+.consult{
+    border: none;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 500px;
+    height: 446px;
+    opacity: 0;
+    transition: 0.25s all;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -223px;
+    margin-left: -250px;
+}
+.consult h4{
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #13171D;
+    font-family: "Bebas-Bold";
+    margin-bottom: 40px;
+}
+.consult span{
+    color: #E2001A;
+}
+.consult form{
+    width: 90%;
+}
+.consult input{
+    width: 100%;
+}
+.consult input[type="text"], .consult input[type="tel"]{
+    width: 100%;
+}
+.close-wrp{
+    display: flex;
+    justify-content: end;
+    margin: 0 auto;
+    width: 90%;
+    cursor: pointer;
+}
+.og{
+    background: #13171D;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: 0.25s all;
+    display: none;
+}
+.op-back{
+    opacity: 0.9;
+    display: block;
+}
+.opct{
+    opacity: 1;
+}
