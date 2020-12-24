@@ -1052,14 +1052,16 @@ input:focus{
     background: #FFFFFF;
     border-radius: 20px;
     width: 500px;
-    height: 446px;
-    opacity: 0;
+    height: 446px;  
     transition: 0.25s all;
     position: fixed;
     left: 50%;
     top: 50%;
     margin-top: -223px;
     margin-left: -250px;
+    transition: 0.25s all;
+    transform: translateX(2000px);
+    padding: 0;
 }
 .consult h4{
     font-size: 32px;
@@ -1102,7 +1104,56 @@ input:focus{
 .op-back{
     opacity: 0.9;
     display: block;
+    z-index: 10001;
+}
+
+.overlow{
+    overflow-y: hidden;
+}
+.nav-phone li a{
+    color: #13171D;
+}
+.succses{
+    border: none;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 500px;
+    height: 446px;
+    transition: 0.25s all;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -223px;
+    margin-left: -250px;
+    transition: 0.25s all;
+    padding: 0;
+    transform: translateX(2000px);
+}
+.succses h4{
+    font-family:"Bebas-Bold";
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #13171D;
+    margin-top: -35px;
+}
+.succses p{
+    font-family:"Gilroy-Regular";
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 10px;
+    text-align: center;
+}
+.succses-img{
+    margin: 0 auto;
+    display: block;
+    margin-top: 65px;
+}
+.succses .close-wrp{
+    margin-top: 26px;
 }
 .opct{
-    opacity: 1;
+    transform: translateX(0);
+    z-index: 10002;
 }

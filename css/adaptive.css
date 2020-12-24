@@ -377,7 +377,6 @@
     .main-section-des-2{
         bottom: 260px;
     }
-
 }
 @media screen and (max-width: 1010px) {
     .text-main-triangle {
@@ -439,6 +438,10 @@
     .bid-sec input[type="submit"]{
         margin: 0 auto;
         display: block;
+    }
+    .bid-sec input[type=text], .bid-sec input[type=tel]{
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
 }
 @media screen and (max-width: 820px) {
@@ -520,6 +523,9 @@
     }
     .bid-sec{
         margin-top: 90px;
+    }
+    .consult{
+        margin-top: -223px;
     }
     .adress ul{
         display: block;
@@ -838,6 +844,43 @@
     .orders-section-wrp h3{
         justify-content: center;
     }
+    .consult{
+        margin-top: -147px;
+        margin-left: -150px;
+        width: 300px;
+        height: 294px;
+    }
+    .consult h4{
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .consult input[type="text"], .consult input[type="tel"]{
+        height: 48px;
+    }
+    .consult input[type="submit"]{
+        padding: 0;
+        width: 260px;
+        height: 48px;
+    }
+    .succses{
+        width: 300px;
+        height: 294px;
+        margin-top: -147px;
+        margin-left: -150px;
+    }
+    .succses-img{
+        margin-top: 0;
+        transform: scale(0.8);
+    }
+    .succses h4{
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .succses p{
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
 @media screen and (max-width: 500px) {
     .consult-btn-wrp{
@@ -881,10 +924,6 @@
     }
     .main-section h2{
         font-size: 14px;
-    }
-    .consult-btn-wrp{
-        padding-top: 13px;
-        padding-bottom: 13px;
     }
     .main-section-cont{
         height: 450px;
