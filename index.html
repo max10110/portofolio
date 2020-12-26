@@ -473,10 +473,9 @@
                 },
             ]
          });
-         if (document.referrer !== document.location.href) {
-            setTimeout(function() {
-                document.location.reload()
-        }, 1000);
+         if(window.name !== "refreshed") {
+            window.name = "refreshed";
+            window.location.refresh();
         }
          $('.slider-reviews').slick({
             infinite: true,
