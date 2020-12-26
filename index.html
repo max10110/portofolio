@@ -473,10 +473,6 @@
                 },
             ]
          });
-         if(window.name !== "refreshed") {
-            window.name = "refreshed";
-            window.location.refresh();
-        }
          $('.slider-reviews').slick({
             infinite: true,
             slidesToShow: 4,
@@ -652,7 +648,11 @@
         } else {
             navbar.classList.remove("sticky");
         }
-        } 
+        }
+        if(window.name !== "refreshed") {
+            window.name = "refreshed";
+            window.location.refresh();
+        }
     </script>
 </body>
 </html>
