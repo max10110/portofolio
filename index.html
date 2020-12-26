@@ -453,6 +453,26 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
+        $('.work-slide').slick({
+            infinite: true,
+            slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToScroll: 1,
+            appendArrows: $('.work-slide-wrp'),
+            prevArrow: '<img class="arrow-work" src="img/arrow-left-2.png" alt="arrow">',
+            nextArrow: '<img class="arrow-work" src="img/arrow-right-2.png" alt="arrow">',
+            responsive: [
+                {
+                breakpoint: 820,
+                settings: {
+                    dots: true,   
+                    prevArrow: "", 
+                    nextArrow: "", 
+                }
+                },
+            ]
+         });
          $('.slider-reviews').slick({
             infinite: true,
             slidesToShow: 4,
@@ -516,26 +536,6 @@
                 }
                 },
 
-            ]
-         });
-         $('.work-slide').slick({
-            infinite: true,
-            slidesToShow: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            slidesToScroll: 1,
-            appendArrows: $('.work-slide-wrp'),
-            prevArrow: '<img class="arrow-work" src="img/arrow-left-2.png" alt="arrow">',
-            nextArrow: '<img class="arrow-work" src="img/arrow-right-2.png" alt="arrow">',
-            responsive: [
-                {
-                breakpoint: 820,
-                settings: {
-                    dots: true,   
-                    prevArrow: "", 
-                    nextArrow: "", 
-                }
-                },
             ]
          });
          $('.devices-list-adapt').slick({
