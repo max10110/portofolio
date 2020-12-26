@@ -473,9 +473,11 @@
                 },
             ]
          });
-         setTimeout(function(){
-            location.reload();
+         if (document.referrer !== document.location.href) {
+            setTimeout(function() {
+                document.location.reload()
         }, 1000);
+        }
          $('.slider-reviews').slick({
             infinite: true,
             slidesToShow: 4,
