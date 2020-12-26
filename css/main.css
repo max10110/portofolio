@@ -904,9 +904,11 @@ h1{
 }
 .work-slide-wrp{
     position: relative;
+    min-width: 0;
 }
 .work-slide{
     max-width: 640px;
+    min-width: 0;
 }
 .work-slide-wrp .slick-arrow:first-child{
     top: 50%;
