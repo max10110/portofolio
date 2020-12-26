@@ -882,6 +882,7 @@ h1{
     align-items: center;
     margin-top: 56px;
     min-width: 0;
+    min-height: 0;
 }
 .work-cont-wrp p{
     color: #646464;
@@ -905,10 +906,12 @@ h1{
 .work-slide-wrp{
     position: relative;
     min-width: 0;
+    min-height: 0;
 }
 .work-slide{
     max-width: 640px;
     min-width: 0;
+    min-height: 0;
 }
 .work-slide-wrp .slick-arrow:first-child{
     top: 50%;
