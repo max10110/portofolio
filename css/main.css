@@ -1165,3 +1165,6 @@ input:focus{
     transform: translateX(0);
     z-index: 10002;
 }
+.slick-slide:active, .slick-slide:focus {
+    outline: none;
+}
