@@ -67,10 +67,10 @@ a{
 .sticky{
     background: #fff;
     box-shadow: 0px 5px 20px #CDDAE1;
-    position: fixed;
-    top: 0;
     z-index: 2000;
     margin-top: 0;
+    position: fixed;
+    top: 0;
 }
 
 header{
@@ -78,7 +78,10 @@ header{
     padding-top: 5px;
     transition: 0.15s all;
     width: 100%;
-
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2000;
 }
 .header-nav{
     display: flex;
@@ -522,6 +525,7 @@ h1{
     width: 81%;
     margin: 0 auto;
     max-width: 1721px;
+    margin-top: 122px;
 }
 .main-section-des-2{
     position: absolute;
@@ -665,6 +669,7 @@ h1{
     height: 72px;
     background: rgba(225, 225, 225, 0.5);
     box-shadow: 0px 20px 40px rgba(255, 107, 0, 0.13), 0px 10px 10px rgba(255, 107, 0, 0.05);
+    outline: none;
 }
 .slider-caret-wrp div{
     display: flex;
@@ -1024,6 +1029,9 @@ h1{
 }
 .adress li p{
     margin-left: 16px;
+}
+.adress li p a{
+    color: #13171D;
 }
 iframe{
     width: 100%;
