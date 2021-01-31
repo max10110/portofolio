@@ -14,20 +14,10 @@ time, mark, audio, video {
 	margin: 0;
     padding: 0;
 }
-img{
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-top: -250px;
-    margin-left: -250px;
-}
-@media screen and (max-width: 530px) {
-    img{
-        width: 80%;
-        height: 80%;
-        margin-left: -40%;
-    }
+p{
+    font-size: 11px;
+    background-image: url(https://static5.depositphotos.com/1006283/481/i/600/depositphotos_4810798-stock-photo-pink-hearts-background.jpg);
+    background-size: cover;
+    padding: 10px;
+    max-width: 500px
 }
