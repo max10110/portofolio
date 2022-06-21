@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <header>
+        <div class="header-lg">
+            <a href="#" class="logo">SoftLab</a>
+            <ul class="lang-changer">
+                <li>en</li>
+                <li>ru</li>
+                <li>ua</li>
+            </ul>    
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#">Разработка</a></li>
+                <li><a href="#">Дизайн</a></li>
+                <li><a href="#">Поддержка</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Портфолио</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="contacts-section">
+        <div>
+            <h1>Контакты</h1>
+            <form novalidate="">
+                <div class="form-input">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="questions-nme" required="">
+                        <label for="questions-nme">
+                        <span>Введите ваше имя *</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+        
+                        <input type="text" class="form-control empty" id="questions-phone" pattern="\+[0-9]{2} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" required="" maxlength="17">
+                        <label for="questions-phone">
+                        <span>Номер телефона *</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+        
+                        <input type="text" class="form-control" id="questions-Email" required="">
+                        <label for="questions-Email">
+                        <span>Email *</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-select">
+                        <select name="services" id="questions-select-services">
+                            <option value="default">Тип сайта</option>
+                            <option value="landingpage">Landing page</option>
+                            <option value="corp-business">Корпоративный/Бизнес сайт</option>
+                            <option value="ecommerce">Интернет магазин</option>
+                            <option value="cutaway">Сайт визитка</option>
+                            <option value="design">Дизайн сайта</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="questions_order_page_id" value="2822">
+        
+                    <div class="btn-wrap">
+                        <button class="btn btn_action btn-blue btn-block questions-submit-button" type="submit">
+                        <span>Отправить</span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            <div class="right-info">
+                <div class="data">
+                    <div>
+                        <h5 class="heading-contact">Свяжитесь с нами!</h5>
+                        <a href="mailto:softlab@gmail.com">softlab@gmail.com</a>
+                    </div>
+                    <div>
+                        <h5>Номер телефона</h5>
+                        <a href="tel:+380953078885">+380953078885</a>
+                    </div>
+                </div>
+                <ul class="mesg-wrp">
+                    <li><a href="#" class="wahtsapp">WhatsApp</a></li>
+                    <li><a href="#" class="tg">Telegram</a></li>
+                    <li><a href="#" class="vib">Viber</a></li>   
+                </ul>
+            </div>
+            <div class="office">
+                <h5>Наш офис</h5>
+                <div class="map-wrp">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5081.539524244779!2d30.498262279779052!3d50.445389060243805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef4bd9b9e81%3A0xc9c1a8d5ad8b31d0!2sSaksahanskoho%20St!5e0!3m2!1sen!2sua!4v1655813714458!5m2!1sen!2sua" width="440" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <ul class="info">
+            <li><a href="#" class="logo">SoftLab</a></li>
+            <li>
+                <h5>Адрес</h5>
+                <p>Украина, г. Киев,<br>
+                    ул. Евгения Сверстюка, 1239</p>
+            </li>
+            <li>
+                <h5>Телефон</h5>
+                <a href="tel:+380953078885">+380953078885</a>
+            </li>
+            <li>
+                <h5>E-mail:</h5>
+                <a href="tel:+380953078885">softlab@gmail.com</a>
+            </li>
+            <li>
+                <ul class="mesg-wrp">
+                    <li><a href="#" class="wahtsapp">WhatsApp</a></li>
+                    <li><a href="#" class="tg">Telegram</a></li>
+                    <li><a href="#" class="vib">Viber</a></li>   
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><h5>Услуги</h5></li>
+            <li><a href="#">Landing page</a></li>
+            <li><a href="#">Корпоративный сайт</a></li>
+            <li><a href="#">Интернет магазин</a></li>
+            <li><a href="#">Бизнес сайт</a></li> 
+            <li><a href="#">Сайт визитка</a></li> 
+            <li><a href="#">Дизайн сайта</a></li> 
+            <li><a href="#">Разработка сайта</a></li> 
+            <li><a href="#">Редизайн сайта</a></li> 
+            <li><a href="#">Ecommerce проект</a></li> 
+        </ul>
+        <ul>
+            <li><h5>ИНФОРМАЦИЯ</h5></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Услуги</a></li>
+            <li><a href="#">Портфолио</a></li>
+            <li><a href="#">Блог</a></li> 
+            <li><a href="#">Создание сайта на WordPress</a></li> 
+            <li><a href="#">Создание сайта на Opencart</a></li> 
+            <li><a href="#">Создание сайтов во Львове</a></li> 
+            <li><a href="#">Создание сайтов в Днепре</a></li> 
+            <li><a href="#">Создание сайтов в Харькове</a></li> 
+        </ul>
+        <ul>
+            <li><h5>СОЦ. СЕТИ</h5></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Linkedin</a></li>
+            <li><a href="#">Behance</a></li> 
+            <li><a href="#">Vimeo</a></li> 
+            <li><a href="#">Pinterest</a></li> 
+        </ul>
+    </footer>
+</body>
+</html>
