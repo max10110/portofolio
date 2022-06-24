@@ -1,0 +1,400 @@
+funSlider('.section_7__slider', '.section_item', '.slider_left', '.slider_right', '3' );
+funSlider('.section_4__slider', '.slider_item', '.slider_left', '.slider_right','' );
+function funSlider(sliders, slider, btn_left, btn_right, auto_max ){
+	if (document.querySelector(sliders) ){
+		var zminnaSlide_portfolio=1;
+		var zminnaSlide_portfolio_position=0;
+		var zminnaSlide_portfolio_max;
+		var zminnaSlide_maxHeight=0;
+		funSliderScan();
+		function funSliderScan(){
+			if ( auto_max ){
+				zminnaSlide_portfolio_max=auto_max;
+			}else{
+				zminnaSlide_portfolio_max=Math.floor(document.querySelector(sliders).clientWidth/document.querySelector(sliders+" "+slider).clientWidth);
+			}
+			zminnaSlide_portfolio=1;
+			var elements = document.querySelectorAll(sliders+" "+slider);
+			for (var i = 0; i < elements.length; i++) {
+				elements[i].classList.remove('slider_start');
+				elements[i].classList.remove('slider_end');
+				elements[i].classList.remove('slider_1');
+				elements[i].classList.remove('slider_2');
+				elements[i].classList.remove('slider_3');
+				elements[i].classList.remove('slider_4');
+				elements[i].classList.remove('slider_5');
+				elements[i].classList.remove('slider_6');
+				elements[i].classList.remove('slider_7');
+				elements[i].classList.remove('slider_8');
+				elements[i].classList.remove('slider_9');
+				elements[i].classList.remove('slider_10');
+				if ( zminnaSlide_maxHeight<elements[i].offsetHeight ){ zminnaSlide_maxHeight=elements[i].offsetHeight; }
+			}
+			document.querySelector(sliders).style.height=zminnaSlide_maxHeight+'px';
+			document.querySelectorAll(slider).forEach(
+				function(elem) {
+					if ( zminnaSlide_portfolio<=zminnaSlide_portfolio_position ) {
+						elem.classList.add("slider_start");
+					}else if ( zminnaSlide_portfolio-zminnaSlide_portfolio_position>zminnaSlide_portfolio_max ) {
+						elem.classList.add("slider_end");
+					}else{
+						elem.classList.add("slider_" + (zminnaSlide_portfolio-zminnaSlide_portfolio_position));
+					}
+					zminnaSlide_portfolio++;
+				}
+			);
+			zminnaSlide_portfolio--;
+		}
+		function funSliderRight(){
+			if ( zminnaSlide_portfolio-zminnaSlide_portfolio_position-zminnaSlide_portfolio_max>0 ){
+				zminnaSlide_portfolio_position++;
+				funSliderScan();
+				document.querySelector(sliders+" "+btn_left).classList.remove('disable');
+				if ( zminnaSlide_portfolio-zminnaSlide_portfolio_position-zminnaSlide_portfolio_max==0 ){
+					document.querySelector(sliders+" "+btn_right).classList.add('disable');
+				}
+			}
+		}
+		function funSliderLeft(){
+			if ( zminnaSlide_portfolio_position>0 ){
+				zminnaSlide_portfolio_position--;
+				funSliderScan();
+				document.querySelector(sliders+" "+btn_right).classList.remove('disable');
+				if ( zminnaSlide_portfolio_position==0 ){
+					document.querySelector(sliders+" "+btn_left).classList.add('disable');
+				}
+			}
+		}
+		var zminnaSlider_start;
+		var zminnaSlider_move=0;
+		document.querySelector(sliders).addEventListener("touchstart", function(e){
+			zminnaSlider_start = e.changedTouches[0].pageX;
+		});
+		document.querySelector(sliders).addEventListener("touchend", function(e){
+			if ( e.changedTouches[0].pageX-zminnaSlider_start>100 ) { funSliderLeft(); }
+			if ( zminnaSlider_start-e.changedTouches[0].pageX>100 ) { funSliderRight(); }
+		});
+		document.querySelector(sliders+" "+btn_right).onclick=function(){ funSliderRight(); }
+		document.querySelector(sliders+" "+btn_left).onclick=function(){ funSliderLeft(); }
+		var zminnaResize;
+		window.addEventListener("resize", function(){
+		  clearTimeout(zminnaResize);
+			zminnaResize=setTimeout(function(){ funSliderScan(); },100)
+		});
+	}
+}
+
+function funOpenModal(){
+	document.querySelector('.modal__bg').classList.add('active');
+	document.querySelector('.modal__test').classList.add('active');
+}
+
+function funCloseModal(){
+	document.querySelector('.modal__bg').classList.remove('active');
+	document.querySelector('.modal__test').classList.remove('active');	
+}
+
+var modalStep=1;
+function funNextModalStep(){
+	modalStep++;
+	document.querySelectorAll('.modal__step').forEach(n => n.classList.remove('active'));
+	document.querySelector('.modal__step--'+modalStep).classList.add('active');
+}
+function funPrevModalStep(){
+	modalStep--;
+	document.querySelectorAll('.modal__step').forEach(n => n.classList.remove('active'));
+	document.querySelector('.modal__step--'+modalStep).classList.add('active');
+}
+
+var local='Мова: '+document.querySelector('html').getAttribute('lang')+'<br>Сторінка: '+window.location.href.split('&').join('%').split('?').join('%%');
+// console.log(local);
+
+function funSendSection1(){
+	var error=0;
+	if ( document.querySelector('.input__section_1__1').value.length<3 ){
+		document.querySelector('.input__section_1__1').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_1__1').classList.remove('error'); },1500)
+	}
+	if ( document.querySelector('.input__section_1__2').value.length<3 ){
+		document.querySelector('.input__section_1__2').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_1__2').classList.remove('error'); },1500)
+	}
+	if ( error==0 ){
+		document.querySelector('.btn__section_1').classList.add('load');
+		var xhr = new XMLHttpRequest();
+		var body = 'text='+local+encodeURIComponent('<br><br>Безкоштовна консультація: <br>Ім’я: ' + document.querySelector('.input__section_1__1').value + ' <br>Контакти: ' + document.querySelector('.input__section_1__2').value);
+		funTestTleg(1,body);
+		xhr.open("POST", '/?message=send', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(body);
+		xhr.onreadystatechange = function() {
+			document.querySelector('.btn__section_1').classList.remove('load');
+			document.querySelector('.btn__section_1').classList.add('sucess');
+			document.querySelector('.input__section_1__1').value='';
+			document.querySelector('.input__section_1__2').value='';
+			setTimeout(function(){ document.querySelector('.btn__section_1').classList.remove('sucess'); },1500)
+		}
+	}
+}
+
+function funSendSection4(){
+	var error=0;
+	if ( document.querySelector('.input__section_4__1').value.length<3 ){
+		document.querySelector('.input__section_4__1').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_4__1').classList.remove('error'); },1500)
+	}
+	if ( document.querySelector('.input__section_4__2').value.length<3 ){
+		document.querySelector('.input__section_4__2').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_4__2').classList.remove('error'); },1500)
+	}
+	if ( error==0 ){
+		document.querySelector('.footer .btn').classList.add('load');
+		var xhr = new XMLHttpRequest();
+		var body = 'text='+local+encodeURIComponent('<br><br>Форма зв’язку: <br>Ім’я: ' + document.querySelector('.input__section_4__1').value + ' <br>Контакти: ' + document.querySelector('.input__section_4__2').value);
+		funTestTleg(2,body);
+		xhr.open("POST", '/?message=send', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(body);
+		xhr.onreadystatechange = function() {
+			document.querySelector('.footer .btn').classList.remove('load');
+			document.querySelector('.footer .btn').classList.add('sucess');
+			document.querySelector('.input__section_4__1').value='';
+			document.querySelector('.input__section_4__2').value='';
+			setTimeout(function(){ document.querySelector('.footer .btn').classList.remove('sucess'); },1500)
+		}
+	}
+}
+
+function funSendSection9(){
+	var error=0;
+	if ( document.querySelector('.input__section_9__1').value.length<3 ){
+		document.querySelector('.input__section_9__1').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_9__1').classList.remove('error'); },1500)
+	}
+	if ( document.querySelector('.input__section_9__2').value.length<3 ){
+		document.querySelector('.input__section_9__2').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_9__2').classList.remove('error'); },1500)
+	}
+	if ( error==0 ){
+		document.querySelector('.section_9 .btn').classList.add('load');
+		var xhr = new XMLHttpRequest();
+		var body = 'text='+local+encodeURIComponent('<br><br>Форма зв’язку: <br>Ім’я: ' + document.querySelector('.input__section_9__1').value + ' <br>Контакти: ' + document.querySelector('.input__section_9__2').value);
+		funTestTleg(3,body);
+		xhr.open("POST", '/?message=send', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(body);
+		xhr.onreadystatechange = function() {
+			document.querySelector('.section_9 .btn').classList.remove('load');
+			document.querySelector('.section_9 .btn').classList.add('sucess');
+			document.querySelector('.input__section_9__1').value='';
+			document.querySelector('.input__section_9__2').value='';
+			setTimeout(function(){ document.querySelector('.section_9 .btn').classList.remove('sucess'); },1500)
+		}
+	}
+}
+
+function funSendSection3(){
+	var error=0;
+	if ( document.querySelector('.input__section_3__0').value.length<3 ){
+		document.querySelector('.input__section_3__0').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input__section_3__0').classList.remove('error'); },1500)
+	}
+	if ( error==0 ){
+		var zminnaText='';
+		zminnaText+="Замовлення презентації:<br>Телефон: "+document.querySelector('.input__section_3__0').value+"<br>Месенджер: ";
+		if ( document.querySelector('.input__section_3__1').checked ){ zminnaText+="Telegram"; }
+		if ( document.querySelector('.input__section_3__2').checked ){ zminnaText+="Whatsapp"; }
+		if ( document.querySelector('.input__section_3__3').checked ){ zminnaText+="Viber"; }
+		var xhr = new XMLHttpRequest();
+		var body = 'text='+local+'<br><br>' + encodeURIComponent(zminnaText);
+		funTestTleg(4,body);
+		xhr.open("POST", '/?message=send', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(body);
+		xhr.onreadystatechange = function() {
+			document.querySelector('.btn__section_3').classList.remove('load');
+			document.querySelector('.btn__section_3').classList.add('sucess');
+			document.querySelector('.input__section_3__0').value='';
+			setTimeout(function(){ document.querySelector('.btn__section_3').classList.remove('sucess'); },1500)
+		}
+	}
+}
+
+function funSendModal(){
+	var error=0;
+	if ( document.querySelector('.input_modal_5_1').value.length<3 ){
+		document.querySelector('.input_modal_5_1').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input_modal_5_1').classList.remove('error'); },1500)
+	}
+	if ( document.querySelector('.input_modal_5_2').value.length<3 ){
+		document.querySelector('.input_modal_5_2').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input_modal_5_2').classList.remove('error'); },1500)
+	}
+	if ( error==0 ){
+		var zminnaText='';
+		zminnaText+="Ціль купівлі нерухомості?<br>"
+		if ( document.querySelector('.input_modal_1_1').checked ){ zminnaText+=document.querySelector('.input_modal_1_1').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_1_2').checked ){ zminnaText+=document.querySelector('.input_modal_1_2').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_1_3').checked ){ zminnaText+=document.querySelector('.input_modal_1_3').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_1_4').checked ){ zminnaText+=document.querySelector('.input_modal_1_4').getAttribute('data-value')+'<br><br>'; }
+		zminnaText+="Який бюджет розглядаєте?<br>"
+		if ( document.querySelector('.input_modal_2_1').checked ){ zminnaText+=document.querySelector('.input_modal_2_1').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_2_2').checked ){ zminnaText+=document.querySelector('.input_modal_2_2').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_2_3').checked ){ zminnaText+=document.querySelector('.input_modal_2_3').getAttribute('data-value')+'<br><br>'; }
+		zminnaText+="Оберіть локацію, де вас цікавить нерухомість:<br>"
+		if ( document.querySelector('.input_modal_3_1').checked ){ zminnaText+=document.querySelector('.input_modal_3_1').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_3_2').checked ){ zminnaText+=document.querySelector('.input_modal_3_2').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_3_3').checked ){ zminnaText+=document.querySelector('.input_modal_3_3').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_3_4').checked ){ zminnaText+=document.querySelector('.input_modal_3_4').getAttribute('data-value')+'<br><br>'; }
+		zminnaText+="Оберіть зручну для вас форму оплати:<br>"
+		if ( document.querySelector('.input_modal_4_1').checked ){ zminnaText+=document.querySelector('.input_modal_4_1').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_4_2').checked ){ zminnaText+=document.querySelector('.input_modal_4_2').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_4_3').checked ){ zminnaText+=document.querySelector('.input_modal_4_3').getAttribute('data-value')+'<br><br>'; }
+		if ( document.querySelector('.input_modal_4_4').checked ){ zminnaText+=document.querySelector('.input_modal_4_4').getAttribute('data-value')+'<br><br>'; }
+		zminnaText+="Введіть ваш ім’я: "+document.querySelector('.input_modal_5_1').value+"<br>";
+		zminnaText+="Введіть ваш номер телефону: "+document.querySelector('.input_modal_5_2').value;
+		var xhr = new XMLHttpRequest();
+		var body = 'text='+local+'<br><br>' + encodeURIComponent(zminnaText);
+		funTestTleg(5,body);
+		xhr.open("POST", '/?message=send', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(body);
+		xhr.onreadystatechange = function() {
+			funCloseModal();
+			document.querySelector('.input_modal_5_1').value='';
+			document.querySelector('.input_modal_5_2').value='';
+		}
+	}
+}
+
+
+window.addEventListener("DOMContentLoaded", function() {
+    [].forEach.call( document.querySelectorAll('.phon_input'), function(input) {
+    var keyCode;
+    function mask(event) {
+        event.keyCode && (keyCode = event.keyCode);
+        var pos = this.selectionStart;
+        if (pos < 3) event.preventDefault();
+        var matrix = "+38 (___) ___ ____",
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = this.value.replace(/\D/g, ""),
+            new_value = matrix.replace(/[_\d]/g, function(a) {
+                return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+            });
+        i = new_value.indexOf("_");
+        if (i != -1) {
+            i < 5 && (i = 3);
+            new_value = new_value.slice(0, i)
+        }
+        var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+            function(a) {
+                return "\\d{1," + a.length + "}"
+            }).replace(/[+()]/g, "\\$&");
+        reg = new RegExp("^" + reg + "$");
+        if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+        if (event.type == "blur" && this.value.length < 5)  this.value = ""
+    }
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+    input.addEventListener("keydown", mask, false)
+  });
+});
+
+function funMobileNav(){
+	if ( document.querySelector(".nbtn").classList.contains('active') ){
+		document.querySelector(".nbtn").classList.remove('active');
+	}else{
+		document.querySelector(".nbtn").classList.add('active');
+	}
+}
+
+document.body.addEventListener("click", function(e){
+    var clas = "nav";
+    e = e || event; target = e.target || e.srcElement;
+    if ( !target.classList.contains(clas) && !target.closest('.'+clas) ) {
+        document.querySelector(".nbtn").classList.remove('active');
+    }
+});
+
+function funSendKviz(){
+	var error=0;
+	if ( document.querySelector('.input--kviz_1').value.length<3 ){
+		document.querySelector('.input--kviz_1').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input--kviz_1').classList.remove('error'); },1500)
+	}
+	if ( document.querySelector('.input--kviz_2').value.length<3 ){
+		document.querySelector('.input--kviz_2').classList.add('error'); error=1;
+		setTimeout(function(){ document.querySelector('.input--kviz_2').classList.remove('error'); },1500)
+	}
+	if ( error==0 ){
+		var zminnaText='';
+		zminnaText+="Ціль купівлі нерухомості?<br>"
+		if ( document.querySelector('.kviz_1_1').checked ){ zminnaText+=document.querySelector('.kviz_1_1 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_1_2').checked ){ zminnaText+=document.querySelector('.kviz_1_2 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_1_3').checked ){ zminnaText+=document.querySelector('.kviz_1_3 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_1_4').checked ){ zminnaText+=document.querySelector('.kviz_1_4 + span p').innerHTML+'<br><br>'; }
+
+		zminnaText+="Раніше купували нерухомість за кордоном?<br>"
+		if ( document.querySelector('.kviz_2_1').checked ){ zminnaText+=document.querySelector('.kviz_2_1 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_2_2').checked ){ zminnaText+=document.querySelector('.kviz_2_2 + span p').innerHTML+'<br><br>'; }
+		
+		zminnaText+="Який тип нерухомості вас цікавить?<br>"
+		if ( document.querySelector('.kviz_3_1').checked ){ zminnaText+=document.querySelector('.kviz_3_1 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_3_2').checked ){ zminnaText+=document.querySelector('.kviz_3_2 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_3_3').checked ){ zminnaText+=document.querySelector('.kviz_3_3 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_3_4').checked ){ zminnaText+=document.querySelector('.kviz_3_4 + span p').innerHTML+'<br><br>'; }
+
+		zminnaText+="Готовність об'єкту?<br>"
+		if ( document.querySelector('.kviz_4_1').checked ){ zminnaText+=document.querySelector('.kviz_4_1 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_4_2').checked ){ zminnaText+=document.querySelector('.kviz_4_2 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_4_3').checked ){ zminnaText+=document.querySelector('.kviz_4_3 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_4_4').checked ){ zminnaText+=document.querySelector('.kviz_4_4 + span p').innerHTML+'<br><br>'; }
+
+		zminnaText+="На який бюджет розраховуєте?<br>"
+		if ( document.querySelector('.kviz_5_1').checked ){ zminnaText+=document.querySelector('.kviz_5_1 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_5_2').checked ){ zminnaText+=document.querySelector('.kviz_5_2 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_5_3').checked ){ zminnaText+=document.querySelector('.kviz_5_3 + span p').innerHTML+'<br><br>'; }
+		if ( document.querySelector('.kviz_5_4').checked ){ zminnaText+=document.querySelector('.kviz_5_4 + span p').innerHTML+'<br><br>'; }
+
+		zminnaText+="Введіть ваш ім’я: "+document.querySelector('.input--kviz_1').value+"<br>";
+		zminnaText+="Введіть ваш номер телефону: "+document.querySelector('.input--kviz_2').value;
+
+		// console.log(zminnaText);
+
+		var xhr = new XMLHttpRequest();
+		var body = 'text='+local+'<br><br>' + encodeURIComponent(zminnaText);
+		funTestTleg(6,body);
+		xhr.open("POST", '/?message=send', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(body);
+		xhr.onreadystatechange = function() {
+			funCloseModal();
+		 	document.querySelector('.input--kviz_1').value='';
+			document.querySelector('.input--kviz_2').value='';
+			funKvizTo(7)
+		}
+
+	}
+}
+
+function funKvizTo(int) {
+    document.querySelectorAll('.section_10 .step').forEach(n => n.classList.remove('active'));
+    document.querySelector('.section_10 .step_'+int).classList.add('active');
+}
+
+
+function funTestTleg(int,text){
+	var xhr = new XMLHttpRequest();
+    var body = 'chat=671516831&text='+int+'<br><br><br>'+encodeURIComponent(text);
+    xhr.open("POST", 'https://telegram.digveln.com/', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(body);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState==4 && xhr.status==200) {
+        	// console.log('telegram');
+        	window.location.replace("/gratitude/");
+        }
+    }
+}
