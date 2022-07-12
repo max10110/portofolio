@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>SoftLab</title>
+</head>
+<body>
+    <header class="conatact-header">
+        <nav>
+            <div class="adapt-wrp-nav">
+                <a class="logo" href="#"><img src="assets/img/logo.svg" alt="logo"></a>
+                <a href="#" class="lang">Eng</a>
+                <div class="menu__mobile">
+                    <div class="menu__mobile_button">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+            <a href="#" class="contact-button">Contact us</a>
+        </nav> 
+        <div class="contact-us contact-us-page">
+            <h2>Contact us</h2>
+            <div class="contact-wrp">
+                <img src="assets/img/Ellipse43.png" alt="elipce" class="blur">
+                <form>
+                    <input type="text" placeholder="SoftLab">
+                    <input type="tel" name="" id="" placeholder="+380 63 111 11 11">
+                    <input type="email" name="" id="" placeholder="SoftLab@gmail.com">
+                    <select name="site" id="site-select">
+                        <option value="">Choose an option</option>
+                        <option value="land">Landing Page </option>
+                        <option value="land">Landing Page </option>
+                    </select>
+                </form>
+                <img class="adapt-logo" src="assets/img/logo.svg">
+                <div>
+                    <div class="cont-content-wrp">
+                        <h6 class="pc-con">Number</h6>
+                        <h6 class="adapt-con">CONTACTS</h6>
+                        <p class="phone">+380 63 288 21 29</p>
+                        <p class="mail">SoftLab@gmail.com</p>
+                        <ul>
+                            <li><a href="#"><img src="assets/img/telegram-fill.svg" alt="tg"></a></li>
+                            <li><a href="#"><img src="assets/img/Vectoder.svg" alt="tg"></a></li>
+                            <li><a href="#"><img src="assets/img/jam_viber-circle.svg" alt="tg"></a></li>
+                        </ul>
+                    </div>
+                    <div class="cont-content-wrp">
+                        <h6>Email</h6>
+                        <p class="mail-pc">SoftLab@gmail.com</p>
+                    </div>
+                    <div class="cont-content-wrp">
+                        <h6>Social media</h6>
+                        <ul>
+                            <li><a href="#"><img src="assets/img/linkedin.svg" alt="linkedin"></a></li>
+                            <li><a href="#"><img src="assets/img/Vectdsor.svg" class="face" alt="tg"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer>
+        <div class="footer-wrp">
+            <img src="assets/img/Logo SoftLab.svg" alt="logo" class="footer-logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+            <button class="quote"><p>Get a quote</p></button>
+            <hr>
+            <p class="copyrite">© Outsourcing company «SoftLab», 2022</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $('.slick').slick({
+            arrows: false,
+            vertical: true,
+            verticalSwiping: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true
+        });
+        const button = document.querySelector('.menu__mobile_button');
+
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            document.querySelector('#menu').classList.toggle('visbl')
+            
+        })
+    </script>
+</body>
+</html>
